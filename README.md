@@ -1,5 +1,6 @@
 # Where To Go
 ![where to go logo](./docs/images/logo.png)
+
 Are you a student at UW-Madison? Find out where stuff is happening today using www.wheretogo.tech!!!
 
 ## Inspiration
