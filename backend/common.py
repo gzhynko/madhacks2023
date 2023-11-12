@@ -26,8 +26,6 @@ class Event:
         self.description = description
 
 
-date_format = "%Y-%m-%d_%H:%M:%S"
-
 db_uri = os.getenv("ATLAS_URI")
 db_client = MongoClient(db_uri, server_api=ServerApi("1"))
 db_cluster = db_client.Madhacks2023Cluster0

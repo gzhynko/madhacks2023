@@ -15,7 +15,17 @@ def run_scrape_events(cloud_event):
 
 
 def scrape_event_data() -> [Event]:
-    return [Event(0, "test event", "", "", "")]
+    return [
+        Event(
+            0,
+            "test event",
+            datetime.strptime("2023-11-11_20:00:00", "%Y-%m-%d_%H:%M:%S"),
+            datetime.strptime("2023-11-11_22:00:00", "%Y-%m-%d_%H:%M:%S"),
+            "Weeks Hall",
+            "Weeks Hall",
+            "",
+        )
+    ]
 
 
 def publish_to_db(event_data: [Event]):
