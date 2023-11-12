@@ -13,7 +13,6 @@ class Event:
         name: str,
         start_datetime: datetime,
         end_datetime: datetime,
-        building_name: str,
         full_location: str,
         description: str,
     ):
@@ -21,8 +20,12 @@ class Event:
         self.name = name
         self.start_datetime = start_datetime
         self.end_datetime = end_datetime
-        self.building_name = building_name
         self.full_location = full_location
+        if "," in full_location:
+            x = full_location.index(",")
+            self.building_name = full_location[0:x]
+        else:
+            self.building_name = full_location
         self.description = description
 
 
