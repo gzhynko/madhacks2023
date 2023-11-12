@@ -32,7 +32,7 @@ def run_get_events(request):
 
     return Response(
         json_util.dumps(get_events(building, start_time, end_time)),
-        mimetype="text/plain",
+        mimetype="application/json",
     )
 
 
@@ -48,4 +48,19 @@ def get_events(
     if building:
         query["building_name"] = building
 
-    return list(events_db.find(query))
+    query_results = events_db.find(query)
+
+    frontend_data = []
+    for result in query_results:
+        frontend_data.append(
+            {
+                "name": result.get("name"),
+                "start_datetime": result.get("start_datetime"),
+                "end_datetime": result.get("end_datetime"),
+                "building_name": result.get("building_name"),
+                "full_location": result.get("full_location"),
+                "description": result.get("description"),
+            }
+        )
+
+    return frontend_data
