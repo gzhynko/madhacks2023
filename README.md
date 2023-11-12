@@ -3,7 +3,7 @@ Where To Go
 Are you a student at UW-Madison? Find out where stuff is happening today using www.wheretogo.tech!!!
 
 ## Inspiration
-We did not like the [link](today.wisc.edu) page and wanted to easy see what events were happening on campus on a map to improve the quality of life of students looking for things to do.
+We did not like the [today.wisc.edu](today.wisc.edu) page and wanted to easy see what events were happening on campus on a map to improve the quality of life of students looking for things to do.
 
 ## What it does
 Displays the events calendar of the [link](today.wisc.edu) page on an interactive map so that users can find a building with things happening and see what events are there.
