@@ -20,8 +20,8 @@ class Event:
         self.full_location = full_location
         if full_location is not None:
             if "," in full_location:
-                x = full_location.index(",")
-                self.building_name = full_location[x+1:len(full_location]
+                x = full_location.split(", ")
+                self.building_name = x[len(x)-1]
             else:
                 self.building_name = full_location
         else:
