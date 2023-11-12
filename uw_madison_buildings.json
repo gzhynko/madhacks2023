@@ -1,0 +1,870 @@
+{
+  "1220 Capitol Court (Primate Annex)": {
+    "latitude": 43.0688898,
+    "longitude": -89.4065277
+  },
+  "1410 Engineering Dr.": {
+    "latitude": 43.072523,
+    "longitude": -89.4096986
+  },
+  "1433 Monroe St.": {
+    "latitude": 43.076592,
+    "longitude": -89.4124875
+  },
+  "1610 University Ave.": {
+    "latitude": 43.076592,
+    "longitude": -89.4124875
+  },
+  "1800 University Ave.": {
+    "latitude": 43.076592,
+    "longitude": -89.4124875
+  },
+  "1910 Linden Dr.": {
+    "latitude": 43.0757237,
+    "longitude": -89.4179387
+  },
+  "206 Bernard Ct.": {
+    "latitude": 43.0713255,
+    "longitude": -89.40176509999999
+  },
+  "209 N. Brooks St.": {
+    "latitude": 43.076592,
+    "longitude": -89.4124875
+  },
+  "215-217 N. Brooks St.": {
+    "latitude": 43.076592,
+    "longitude": -89.4124875
+  },
+  "21 N. Park St.": {
+    "latitude": 43.076592,
+    "longitude": -89.4124875
+  },
+  "30 N. Mills St.": {
+    "latitude": 43.076592,
+    "longitude": -89.4124875
+  },
+  "333 East Campus Mall": {
+    "latitude": 43.076592,
+    "longitude": -89.4124875
+  },
+  "432 East Campus Mall": {
+    "latitude": 43.076592,
+    "longitude": -89.4124875
+  },
+  "445 Henry Mall": {
+    "latitude": 43.0742738,
+    "longitude": -89.40989669999999
+  },
+  "45 N. Charter St.": {
+    "latitude": 43.076592,
+    "longitude": -89.4124875
+  },
+  "502 Herrick Dr.": {
+    "latitude": 43.0742927,
+    "longitude": -89.4230743
+  },
+  "702 W. Johnson St.": {
+    "latitude": 43.076592,
+    "longitude": -89.4124875
+  },
+  "711 State St.": {
+    "latitude": 43.076592,
+    "longitude": -89.4124875
+  },
+  "901 University Bay Dr.": {
+    "latitude": 43.076592,
+    "longitude": -89.4124875
+  },
+  "Adams Residence Hall": {
+    "latitude": 43.07787769999999,
+    "longitude": -89.4118056
+  },
+  "Agricultural Bulletin Building": {
+    "latitude": 43.0763287,
+    "longitude": -89.4116054
+  },
+  "Agricultural Dean's Residence": {
+    "latitude": 43.0770557,
+    "longitude": -89.41314419999999
+  },
+  "Agricultural Engineering Building": {
+    "latitude": 43.0747884,
+    "longitude": -89.4106482
+  },
+  "Agricultural Engineering Laboratory": {
+    "latitude": 43.076142,
+    "longitude": -89.41666
+  },
+  "Agricultural Hall": {
+    "latitude": 43.0757248,
+    "longitude": -89.41027389999999
+  },
+  "Alumni Hall, 1100 Delaplaine Ct.": {
+    "latitude": 43.076592,
+    "longitude": -89.4124875
+  },
+  "American Family Children's Hospital": {
+    "latitude": 43.0769803,
+    "longitude": -89.4334073
+  },
+  "Animal Science Building": {
+    "latitude": 43.0761102,
+    "longitude": -89.4152618
+  },
+  "Apartment Facilities Office": {
+    "latitude": 43.076592,
+    "longitude": -89.4124875
+  },
+  "Armory and Gymnasium (Red Gym)": {
+    "latitude": 43.0721661,
+    "longitude": -89.4007501
+  },
+  "Art Lofts": {
+    "latitude": 43.0690363,
+    "longitude": -89.3954208
+  },
+  "Athletics Operations Building": {
+    "latitude": 43.0688647,
+    "longitude": -89.41350760000002
+  },
+  "Atmospheric, Oceanic and Space Sciences Building": {
+    "latitude": 43.0707373,
+    "longitude": -89.40689809999999
+  },
+  "Babcock Hall": {
+    "latitude": 43.0748378,
+    "longitude": -89.4136362
+  },
+  "Bakke Recreation & Wellbeing Center": {
+    "latitude": 43.07675,
+    "longitude": -89.4201054
+  },
+  "Bardeen Medical Laboratories": {
+    "latitude": 43.0748882,
+    "longitude": -89.4069766
+  },
+  "Barnard Residence Hall": {
+    "latitude": 43.0736774,
+    "longitude": -89.4022475
+  },
+  "Bascom Hall": {
+    "latitude": 43.0748841,
+    "longitude": -89.4020125
+  },
+  "Below Alumni Center": {
+    "latitude": 43.0767832,
+    "longitude": -89.39784089999999
+  },
+  "Bernie\u2019s Place Childcare": {
+    "latitude": 43.082819,
+    "longitude": -89.44190499999999
+  },
+  "Biotron Laboratory": {
+    "latitude": 43.07590260000001,
+    "longitude": -89.42252169999999
+  },
+  "Birge Hall": {
+    "latitude": 43.0744596,
+    "longitude": -89.40370829999999
+  },
+  "Bock Laboratories": {
+    "latitude": 43.0748638,
+    "longitude": -89.4110996
+  },
+  "Bradley Memorial Building": {
+    "latitude": 43.07478709999999,
+    "longitude": -89.40762749999999
+  },
+  "Bradley Residence Hall": {
+    "latitude": 43.077888,
+    "longitude": -89.416431
+  },
+  "Brogden Psychology Building": {
+    "latitude": 43.07252829999999,
+    "longitude": -89.4061911
+  },
+  "Camp Randall Sports Center": {
+    "latitude": 43.0701009,
+    "longitude": -89.410941
+  },
+  "Camp Randall Stadium": {
+    "latitude": 43.0699446,
+    "longitude": -89.4126871
+  },
+  "Carillon Tower": {
+    "latitude": 43.0761195,
+    "longitude": -89.40502000000001
+  },
+  "Carl Schuman Shelter": {
+    "latitude": 43.0784652,
+    "longitude": -89.4188877
+  },
+  "Carson Gulley Center": {
+    "latitude": 43.0771384,
+    "longitude": -89.411341
+  },
+  "CDIS Building (opening fall 2025)": {
+    "latitude": 43.0711993,
+    "longitude": -89.4065681
+  },
+  "Cereal Crops Research Unit": {
+    "latitude": 43.0721661,
+    "longitude": -89.4007501
+  },
+  "Chadbourne Residence Hall": {
+    "latitude": 43.073825,
+    "longitude": -89.40124500000002
+  },
+  "Chamberlin Hall": {
+    "latitude": 43.0739471,
+    "longitude": -89.40603550000002
+  },
+  "Chamberlin House (Kronshage)": {
+    "latitude": 43.0782618,
+    "longitude": -89.41535209999999
+  },
+  "Charter Street Heating and Cooling Plant": {
+    "latitude": 43.0704412,
+    "longitude": -89.40514379999999
+  },
+  "Chazen Museum of Art": {
+    "latitude": 43.0738323,
+    "longitude": -89.39931930000002
+  },
+  "Chemistry Building": {
+    "latitude": 43.0725942,
+    "longitude": -89.4046935
+  },
+  "Cole Residence Hall": {
+    "latitude": 43.077383,
+    "longitude": -89.414999
+  },
+  "Computer Sciences": {
+    "latitude": 43.076592,
+    "longitude": -89.4124875
+  },
+  "Conover House (Kronshage)": {
+    "latitude": 43.0781111,
+    "longitude": -89.4147608
+  },
+  "Conrad A. Elvehjem Building": {
+    "latitude": 43.0738323,
+    "longitude": -89.39931930000002
+  },
+  "Dairy Barn": {
+    "latitude": 43.0746479,
+    "longitude": -89.4184171
+  },
+  "Dairy Cattle Center": {
+    "latitude": 43.0749006,
+    "longitude": -89.41711819999999
+  },
+  "Davis Residence Hall": {
+    "latitude": 43.071838,
+    "longitude": -89.40162959999999
+  },
+  "D.C. Smith Greenhouse": {
+    "latitude": 43.0747534,
+    "longitude": -89.41249570000001
+  },
+  "Dejope Residence Hall": {
+    "latitude": 43.0777516,
+    "longitude": -89.41777189999999
+  },
+  "DeLuca Biochemical Sciences Building": {
+    "latitude": 43.0743074,
+    "longitude": -89.4111716
+  },
+  "DeLuca Biochemistry Building": {
+    "latitude": 43.0738283,
+    "longitude": -89.4108749
+  },
+  "DeLuca Biochemistry Laboratories": {
+    "latitude": 43.0743074,
+    "longitude": -89.4111716
+  },
+  "Discovery Building": {
+    "latitude": 43.072896,
+    "longitude": -89.4075586
+  },
+  "Eagle Heights": {
+    "latitude": 43.076592,
+    "longitude": -89.4124875
+  },
+  "Eagle Heights Buildings 101-108": {
+    "latitude": 43.076592,
+    "longitude": -89.4124875
+  },
+  "Eagle Heights Buildings 201-209": {
+    "latitude": 43.076592,
+    "longitude": -89.4124875
+  },
+  "Eagle Heights Buildings 301-309": {
+    "latitude": 43.076592,
+    "longitude": -89.4124875
+  },
+  "Eagle Heights Buildings 401-408": {
+    "latitude": 43.076592,
+    "longitude": -89.4124875
+  },
+  "Eagle Heights Buildings 501-509": {
+    "latitude": 43.076592,
+    "longitude": -89.4124875
+  },
+  "Eagle Heights Buildings 601-610": {
+    "latitude": 43.076592,
+    "longitude": -89.4124875
+  },
+  "Eagle Heights Buildings 701-819": {
+    "latitude": 43.076592,
+    "longitude": -89.4124875
+  },
+  "Eagle Heights Buildings 901-946": {
+    "latitude": 43.076592,
+    "longitude": -89.4124875
+  },
+  "Eagle Heights Community Center": {
+    "latitude": 43.08825969999999,
+    "longitude": -89.43648929999999
+  },
+  "Educational Sciences": {
+    "latitude": 43.0719198,
+    "longitude": -89.40345579999999
+  },
+  "Education Building": {
+    "latitude": 43.0757439,
+    "longitude": -89.40225389999999
+  },
+  "Engineering Centers Building": {
+    "latitude": 43.0727698,
+    "longitude": -89.41347060000001
+  },
+  "Engineering Hall": {
+    "latitude": 43.0718432,
+    "longitude": -89.4102163
+  },
+  "Engineering Research Building": {
+    "latitude": 43.0725321,
+    "longitude": -89.4114737
+  },
+  "Environmental Health and Safety Building": {
+    "latitude": 43.076592,
+    "longitude": -89.4124875
+  },
+  "Enzyme Institute": {
+    "latitude": 43.0736667,
+    "longitude": -89.4155842
+  },
+  "Extension Building": {
+    "latitude": 43.0742436,
+    "longitude": -89.3978994
+  },
+  "Field House": {
+    "latitude": 43.076592,
+    "longitude": -89.4124875
+  },
+  "Fleet and Service Garage": {
+    "latitude": 43.0688929,
+    "longitude": -89.40523809999999
+  },
+  "Fluno Center For Executive Education": {
+    "latitude": 43.0730234,
+    "longitude": -89.3964006
+  },
+  "Forest Products Laboratory": {
+    "latitude": 43.076592,
+    "longitude": -89.4124875
+  },
+  "Genetics-Biotechnology Center Building": {
+    "latitude": 43.0738411,
+    "longitude": -89.40936959999999
+  },
+  "Gilman House (Kronshage)": {
+    "latitude": 43.0780758,
+    "longitude": -89.412967
+  },
+  "Goodman Softball Complex": {
+    "latitude": 43.0809751,
+    "longitude": -89.4297978
+  },
+  "Goodnight Hall": {
+    "latitude": 43.0788044,
+    "longitude": -89.41867479999999
+  },
+  "Gordon Dining and Event Center": {
+    "latitude": 43.071196,
+    "longitude": -89.39861189999999
+  },
+  "Grainger Hall": {
+    "latitude": 43.0727087,
+    "longitude": -89.40163559999999
+  },
+  "Hamel Music Center": {
+    "latitude": 43.0733865,
+    "longitude": -89.39798619999999
+  },
+  "Hanson Biomedical Sciences Building": {
+    "latitude": 43.0757365,
+    "longitude": -89.41468180000001
+  },
+  "Harlow Primate Lab": {
+    "latitude": 43.0686152,
+    "longitude": -89.4060751
+  },
+  "Harvey Street Apartments": {
+    "latitude": 43.0745338,
+    "longitude": -89.44027129999999
+  },
+  "Hasler Laboratory of Limnology": {
+    "latitude": 43.077227,
+    "longitude": -89.4029302
+  },
+  "Health Sciences Learning Center": {
+    "latitude": 43.0774041,
+    "longitude": -89.43032939999999
+  },
+  "Helen C. White Hall": {
+    "latitude": 43.0765446,
+    "longitude": -89.4014316
+  },
+  "Hiram Smith Annex": {
+    "latitude": 43.0760013,
+    "longitude": -89.41128429999999
+  },
+  "Hiram Smith Hall": {
+    "latitude": 43.0760027,
+    "longitude": -89.4115432
+  },
+  "Holt Center (Kronshage)": {
+    "latitude": 43.0778687,
+    "longitude": -89.4131163
+  },
+  "Horse Barn": {
+    "latitude": 43.076592,
+    "longitude": -89.4124875
+  },
+  "Horticulture": {
+    "latitude": 43.076592,
+    "longitude": -89.4124875
+  },
+  "Humphrey Hall": {
+    "latitude": 43.0775064,
+    "longitude": -89.4129899
+  },
+  "Ingraham Hall": {
+    "latitude": 43.0755115,
+    "longitude": -89.40521389999999
+  },
+  "Integrative Biology Research Building": {
+    "latitude": 43.076592,
+    "longitude": -89.4124875
+  },
+  "Jones House (Kronshage)": {
+    "latitude": 43.0721661,
+    "longitude": -89.4007501
+  },
+  "Jorns Hall": {
+    "latitude": 43.0775312,
+    "longitude": -89.41297709999999
+  },
+  "Kellner Hall": {
+    "latitude": 43.068965,
+    "longitude": -89.4121037
+  },
+  "King Hall": {
+    "latitude": 43.076592,
+    "longitude": -89.4124875
+  },
+  "Kronshage Residence Hall": {
+    "latitude": 43.0781454,
+    "longitude": -89.4143722
+  },
+  "LaBahn Arena": {
+    "latitude": 43.069748,
+    "longitude": -89.3986353
+  },
+  "Lathrop Hall": {
+    "latitude": 43.0736979,
+    "longitude": -89.4029647
+  },
+  "Law Building": {
+    "latitude": 43.0745696,
+    "longitude": -89.4022331
+  },
+  "Leopold Residence Hall": {
+    "latitude": 43.077685,
+    "longitude": -89.4140503
+  },
+  "Livestock Laboratory": {
+    "latitude": 43.0757679,
+    "longitude": -89.41689939999999
+  },
+  "Lowell Center": {
+    "latitude": 43.07625669999999,
+    "longitude": -89.3957638
+  },
+  "Mack House (Kronshage)": {
+    "latitude": 43.0780009,
+    "longitude": -89.41346580000001
+  },
+  "Materials Science and Engineering Building": {
+    "latitude": 43.0729928,
+    "longitude": -89.4113067
+  },
+  "McArdle Building": {
+    "latitude": 43.076592,
+    "longitude": -89.4124875
+  },
+  "McClain Athletic Facility": {
+    "latitude": 43.076592,
+    "longitude": -89.4124875
+  },
+  "Meat Microbiology Lab": {
+    "latitude": 43.076592,
+    "longitude": -89.4124875
+  },
+  "Meat Science and Muscle Biology Lab": {
+    "latitude": 43.076592,
+    "longitude": -89.4124875
+  },
+  "Meat Science & Animal Biologics Discovery": {
+    "latitude": 43.0762552,
+    "longitude": -89.4187333
+  },
+  "Mechanical Engineering Building": {
+    "latitude": 43.0727652,
+    "longitude": -89.41258309999999
+  },
+  "Medical Sciences": {
+    "latitude": 43.076592,
+    "longitude": -89.4124875
+  },
+  "Medical Sciences Center": {
+    "latitude": 43.074179,
+    "longitude": -89.40733159999999
+  },
+  "Meiklejohn House": {
+    "latitude": 43.0720108,
+    "longitude": -89.4059632
+  },
+  "Memorial Library": {
+    "latitude": 43.075434,
+    "longitude": -89.39786699999999
+  },
+  "Memorial Union": {
+    "latitude": 43.076592,
+    "longitude": -89.4124875
+  },
+  "Merit Residence Hall": {
+    "latitude": 43.0707371,
+    "longitude": -89.4016326
+  },
+  "Microbial Sciences": {
+    "latitude": 43.0756925,
+    "longitude": -89.41216179999999
+  },
+  "Middleton Building": {
+    "latitude": 43.0747905,
+    "longitude": -89.40818340000001
+  },
+  "Moore Hall - Agronomy": {
+    "latitude": 43.0746956,
+    "longitude": -89.4115884
+  },
+  "Mosse Humanities Building": {
+    "latitude": 43.0741703,
+    "longitude": -89.4000444
+  },
+  "Music Hall": {
+    "latitude": 43.076592,
+    "longitude": -89.4124875
+  },
+  "Nancy Nicholas Hall": {
+    "latitude": 43.0757388,
+    "longitude": -89.4087644
+  },
+  "Nicholas-Johnson Pavilion and Plaza": {
+    "latitude": 43.0695022,
+    "longitude": -89.3980472
+  },
+  "Nicholas Recreation Center": {
+    "latitude": 43.0707317,
+    "longitude": -89.3989429
+  },
+  "Nielsen Tennis Stadium": {
+    "latitude": 43.0795772,
+    "longitude": -89.4302994
+  },
+  "Noland Hall": {
+    "latitude": 43.076592,
+    "longitude": -89.4124875
+  },
+  "North Hall": {
+    "latitude": 43.0756912,
+    "longitude": -89.40290879999999
+  },
+  "Nutritional Sciences": {
+    "latitude": 43.0748308,
+    "longitude": -89.4089341
+  },
+  "Observatory Hill Office Building": {
+    "latitude": 43.0762659,
+    "longitude": -89.4076645
+  },
+  "Ogg Residence Hall": {
+    "latitude": 43.070549,
+    "longitude": -89.399936
+  },
+  "Phillips Residence Hall": {
+    "latitude": 43.078503,
+    "longitude": -89.418003
+  },
+  "Plant Sciences": {
+    "latitude": 43.076592,
+    "longitude": -89.4124875
+  },
+  "Police and Security Facility": {
+    "latitude": 43.0693157,
+    "longitude": -89.409964
+  },
+  "Porter Boathouse": {
+    "latitude": 43.0783076,
+    "longitude": -89.41247949999999
+  },
+  "Poultry Research Laboratory": {
+    "latitude": 43.0762131,
+    "longitude": -89.4179168
+  },
+  "Pyle Center": {
+    "latitude": 43.0760396,
+    "longitude": -89.3978659
+  },
+  "Radio Hall": {
+    "latitude": 43.0760073,
+    "longitude": -89.4016726
+  },
+  "Rennebohm Hall": {
+    "latitude": 43.0786161,
+    "longitude": -89.428259
+  },
+  "Russell Laboratories": {
+    "latitude": 43.0754075,
+    "longitude": -89.4131283
+  },
+  "Rust-Schreiner Hall": {
+    "latitude": 43.07035560000001,
+    "longitude": -89.40701729999999
+  },
+  "School of Social Work Building": {
+    "latitude": 43.0743822,
+    "longitude": -89.4081982
+  },
+  "Science Hall": {
+    "latitude": 43.0758636,
+    "longitude": -89.40104559999999
+  },
+  "Sellery Residence Hall": {
+    "latitude": 43.0715567,
+    "longitude": -89.4003433
+  },
+  "Service Memorial Institute": {
+    "latitude": 43.0743136,
+    "longitude": -89.40649289999999
+  },
+  "Sewell Social Sciences": {
+    "latitude": 43.0765006,
+    "longitude": -89.4052976
+  },
+  "Showerman House (Kronshage)": {
+    "latitude": 43.07814399999999,
+    "longitude": -89.41404
+  },
+  "Signe Skott Cooper Hall": {
+    "latitude": 43.0775337,
+    "longitude": -89.4278564
+  },
+  "Slichter Residence Hall": {
+    "latitude": 43.077089,
+    "longitude": -89.412279
+  },
+  "Smith Residence Hall": {
+    "latitude": 43.068919,
+    "longitude": -89.400515
+  },
+  "Soils Building": {
+    "latitude": 43.076543,
+    "longitude": -89.4113409
+  },
+  "Southeast Residence Halls": {
+    "latitude": 43.076592,
+    "longitude": -89.4124875
+  },
+  "South Hall": {
+    "latitude": 43.0748015,
+    "longitude": -89.4030782
+  },
+  "Steenbock Library": {
+    "latitude": 43.0762592,
+    "longitude": -89.41309559999999
+  },
+  "Sterling Hall": {
+    "latitude": 43.0747399,
+    "longitude": -89.4058197
+  },
+  "Stock Pavilion": {
+    "latitude": 43.0748263,
+    "longitude": -89.4151297
+  },
+  "Stovall Building (Wisconsin State Laboratory of Hygiene)": {
+    "latitude": 43.0747966,
+    "longitude": -89.40984069999999
+  },
+  "Sullivan Residence Hall": {
+    "latitude": 43.07765939999999,
+    "longitude": -89.4156417
+  },
+  "Swenson House (Kronshage)": {
+    "latitude": 43.077948,
+    "longitude": -89.41526119999999
+  },
+  "Taylor Hall": {
+    "latitude": 43.076592,
+    "longitude": -89.4124875
+  },
+  "Teacher Education": {
+    "latitude": 43.076592,
+    "longitude": -89.4124875
+  },
+  "The Kohl Center": {
+    "latitude": 43.0693474,
+    "longitude": -89.3969006
+  },
+  "Tripp Residence Hall": {
+    "latitude": 43.07806840000001,
+    "longitude": -89.4109491
+  },
+  "Turner House (Kronshage)": {
+    "latitude": 43.0721661,
+    "longitude": -89.4007501
+  },
+  "Union South": {
+    "latitude": 43.0719999,
+    "longitude": -89.40764639999999
+  },
+  "University Club": {
+    "latitude": 43.076592,
+    "longitude": -89.4124875
+  },
+  "University Hospital": {
+    "latitude": 43.076592,
+    "longitude": -89.4124875
+  },
+  "University Houses": {
+    "latitude": 43.083859,
+    "longitude": -89.441012
+  },
+  "U.S. Dairy Forage Research Center": {
+    "latitude": 43.0753629,
+    "longitude": -89.41825759999999
+  },
+  "UW Foundation": {
+    "latitude": 43.0721661,
+    "longitude": -89.4007501
+  },
+  "UW Medical Foundation Centennial Building": {
+    "latitude": 43.07537079999999,
+    "longitude": -89.43304619999999
+  },
+  "Van Hise Hall": {
+    "latitude": 43.0753512,
+    "longitude": -89.4064607
+  },
+  "Van Vleck Hall": {
+    "latitude": 43.0747424,
+    "longitude": -89.4045057
+  },
+  "Veterans Administration Hospital": {
+    "latitude": 43.076592,
+    "longitude": -89.4124875
+  },
+  "Veterinary Medicine": {
+    "latitude": 43.076592,
+    "longitude": -89.4124875
+  },
+  "Vet Med Expansion (Under Construction, 2023)": {
+    "latitude": 43.076592,
+    "longitude": -89.4124875
+  },
+  "Vilas Hall": {
+    "latitude": 43.0726995,
+    "longitude": -89.39985999999999
+  },
+  "Waisman Center": {
+    "latitude": 43.0785995,
+    "longitude": -89.43307659999999
+  },
+  "Walnut Street Greenhouse": {
+    "latitude": 43.07607369999999,
+    "longitude": -89.4239589
+  },
+  "Walnut Street Heating and Cooling Plant": {
+    "latitude": 43.0744171,
+    "longitude": -89.42434089999999
+  },
+  "WARF Office Building": {
+    "latitude": 43.0762528,
+    "longitude": -89.4260949
+  },
+  "Washburn Observatory": {
+    "latitude": 43.0761804,
+    "longitude": -89.4089006
+  },
+  "Water Science and Engineering Laboratory": {
+    "latitude": 43.07712009999999,
+    "longitude": -89.40190609999999
+  },
+  "Waters Residence Hall": {
+    "latitude": 43.0767782,
+    "longitude": -89.40694669999999
+  },
+  "Weeks Hall for Geological Sciences": {
+    "latitude": 43.070481,
+    "longitude": -89.4062476
+  },
+  "Wendt Commons": {
+    "latitude": 43.071681,
+    "longitude": -89.4087205
+  },
+  "West Campus Cogeneration Facility": {
+    "latitude": 43.0749359,
+    "longitude": -89.42507909999999
+  },
+  "Wisconsin Energy Institute": {
+    "latitude": 43.0737517,
+    "longitude": -89.4140237
+  },
+  "Wisconsin Historical Society": {
+    "latitude": 43.076592,
+    "longitude": -89.4124875
+  },
+  "Wisconsin Institutes for Medical Research": {
+    "latitude": 43.078454,
+    "longitude": -89.4313729
+  },
+  "Wisconsin Primate Center": {
+    "latitude": 43.0685351,
+    "longitude": -89.4069341
+  },
+  "Wisconsin Veterinary Diagnostic Laboratory": {
+    "latitude": 43.0744356,
+    "longitude": -89.421459
+  },
+  "Witte Residence Hall": {
+    "latitude": 43.0718572,
+    "longitude": -89.397185
+  },
+  "Zoe Bayliss Co-Op": {
+    "latitude": 43.071815,
+    "longitude": -89.401366
+  }
+}
