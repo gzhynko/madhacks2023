@@ -21,7 +21,7 @@ class Event:
         if full_location is not None:
             if "," in full_location:
                 x = full_location.index(",")
-                self.building_name = full_location[0:x]
+                self.building_name = full_location[x+1:len(full_location]
             else:
                 self.building_name = full_location
         else:
