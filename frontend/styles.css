@@ -1,0 +1,131 @@
+:root {
+    --form-element-spacing-vertical: 0.55rem;
+    --form-element-spacing-horizontal: 0.75rem;
+    font-size: 16px;
+    --line-height: 1;
+    --form-element-background-color: #f6f6f6 !important;
+    --form-element-border-color: hsl(0deg 0% 100% / 0%) !important;
+    --primary: #c5050c;
+    --primary-hover: #c5050c;
+    --spacing: 0;
+}
+
+body { 
+    margin: 0; 
+    padding: 0; 
+}
+
+.find-button {
+    display: inline-block;
+    text-align: center;
+    font-size: 14px;
+    font-family: 'Red Hat Display';
+    font-weight: 600;
+    padding: 0.75rem 1.25rem;
+    margin-top: 10px;
+    width: 100%;
+    background: #0479a8;
+    color: #fff;
+    box-shadow: 0 1.5px 4px rgba(0,0,0,.24), 0 1.5px 6px rgba(0,0,0,.12);
+    position: relative;
+    cursor: pointer;
+    -webkit-appearance: none;
+    transition: all .25s ease-out;
+    vertical-align: middle;
+    border: 2px solid #0479a8;
+    border-radius: 2px;
+
+    background-color: #c5050c;
+    color: #fff;
+    border: 2px solid #c5050c;
+}
+
+.find-button:hover {
+    background-color: #fff;
+    color: #c5050c;
+}
+
+.events-box {
+    width: 300px;
+    position: absolute;
+    top: 10px;
+    bottom: 40px;
+    left: 10px;
+    background-color: white;
+    padding: 15px;
+    font: 20px 'Red Hat Display', Arial, Helvetica, sans-serif;
+    font-weight: 500;
+}
+
+.date-input-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.date-input {
+    font: 16px 'Red Hat Display', Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    margin-top: 10px;
+}
+
+.events {
+    overflow: scroll;
+    max-height: 250px;
+}
+
+#events-list {
+    overflow-y: scroll;
+    height: 400px;
+}
+
+.event-container {
+    margin-bottom: 10px;
+}
+
+.event-name {
+    /* white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden; */
+    font-weight: 500;
+    margin-bottom: 3px;
+    max-width: 380px;
+    /* color: rgb(4, 121, 168); */
+    color: rgb(24, 185, 250);
+}
+
+.event-detail {
+    /* color: #646464;  */
+    font-size: 14px;
+    margin-bottom: 3px;
+}
+
+#map { position: absolute; top: 0; bottom: 0; width: 100%; }
+
+.mapboxgl-popup {
+    min-width: 450px;
+    font: 18px 'Red Hat Display', Arial, Helvetica, sans-serif;
+    /* color: rgb(51, 51, 51); */
+    color: white;
+}
+
+/* thanks https://stackoverflow.com/questions/44554692/style-a-mapbox-popups-pointer-indicator */
+.mapboxgl-popup-content {
+    background-color: #171717;
+    padding: 16px;
+}
+.mapboxgl-popup-anchor-top .mapboxgl-popup-tip,
+.mapboxgl-popup-anchor-top-left .mapboxgl-popup-tip,
+.mapboxgl-popup-anchor-top-right .mapboxgl-popup-tip {
+    border-bottom-color:  #171717;
+    }
+.mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip,
+.mapboxgl-popup-anchor-bottom-left .mapboxgl-popup-tip,
+.mapboxgl-popup-anchor-bottom-right .mapboxgl-popup-tip {
+    border-top-color:  #171717;
+    }
+.mapboxgl-popup-anchor-left .mapboxgl-popup-tip {
+    border-right-color: #171717;
+    }
+.mapboxgl-popup-anchor-right .mapboxgl-popup-tip {
+    border-left-color: #171717;
+    }
