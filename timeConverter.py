@@ -8,8 +8,8 @@ def changeToFullTime(hour, isPM):
     if (":" not in hour):
         num_hours = int(hour)
         hour = hour + ":00"
-    else:
-        num_hours = int(hour[0]) if len(hour) == 3 else int(hour[0:2])
+    
+    num_hours = int(hour[0]) if len(hour) == 4 else int(hour[0:2])
         
     if (isPM):
         second_part = hour[1:] if num_hours < 10 else hour[2:]
