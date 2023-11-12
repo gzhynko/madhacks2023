@@ -93,26 +93,6 @@ class Event:
 		self.end_datetime = end_datetime
 		self.description = description
 
-	def __str__(self) -> str:
-		if self.name is not None:
-			result = ("Title: " + self.name + "\n")
-		if self.event_id is not None:
-			result = (result + "event_id: " + self.event_id + "\n")
-		if self.start_datetime is not None:
-			result = (result + "start_datetime: " + str(self.start_datetime) + "\n")
-		if self.end_datetime is not None:
-  			result = (result + "end_datetime: " + str(self.end_datetime) + "\n")
-		if self.building_name is not None:
-			result = (result + "building_name: " + self.building_name + "\n")
-		if self.full_location is not None:
-			result = (result + "full_location: " + self.full_location + "\n")
-		if self.description is not None:
-			result = (result + "description: " + self.description + "\n")
-		return result
-
-
-
-
 time = date.today()
 
 Events = []
@@ -192,5 +172,4 @@ for h in range(7):
                                         
                         var = Event(id, name, start, end, building, location, description)
                         Events.append(var)
-                        print(var)
 
