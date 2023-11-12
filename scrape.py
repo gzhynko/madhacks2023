@@ -81,7 +81,7 @@ for h in range(7):
                         page = requests.get(URL)
                         soup = BeautifulSoup(page.content, "html.parser")
                         results = soup.find(id="main")
-                                                if results.find("div", class_="event-description") != -1:
+                        if results.find("div", class_="event-description") != -1:
                                 description = results.find("div", class_="event-description")
                                 if description is not None:
                                         description = description.text
