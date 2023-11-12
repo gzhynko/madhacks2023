@@ -13,6 +13,21 @@ date_format = "%Y-%m-%d_%H:%M:%S"
 # triggered by an http request.
 @functions_framework.http
 def run_get_events(request):
+    if request.method == "OPTIONS":
+        # Allows GET requests from any origin with the Content-Type
+        # header and caches preflight response for an 3600s
+        headers = {
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods": "POST",
+            "Access-Control-Allow-Headers": "Content-Type",
+            "Access-Control-Max-Age": "3600",
+        }
+
+        return Response("", 204, headers)
+
+    # Set CORS headers for the main request
+    headers = {"Access-Control-Allow-Origin": "*"}
+
     request_json = request.json
 
     building_str = request_json.get("building")
@@ -21,7 +36,9 @@ def run_get_events(request):
     if not building_str and not start_time_str and not end_time_str:
         return Response(
             "Query should include at least one of the following arguments: building, start_time, end_time",
-            mimetype="text/plain",
+            200,
+            headers,
+            "text/plain",
         )
 
     start_time = (
@@ -32,7 +49,9 @@ def run_get_events(request):
 
     return Response(
         json_util.dumps(get_events(building, start_time, end_time)),
-        mimetype="application/json",
+        200,
+        headers,
+        "application/json",
     )
 
 
