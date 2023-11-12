@@ -124,8 +124,8 @@ function addEventsToOverlay(pointsToAdd) {
                     <div class="event-detail" style="max-height: 100px; text-overflow: ellipsis; overflow: hidden; white-space: nowrap">${
                         event.description ? event.description : "No description"
                     }</div>      
-                    <div class="event-detail">Starts ${dayjs(event.start_datetime.$date).format("lll")}</div>  
-                    <div class="event-detail">Ends ${dayjs(event.end_datetime.$date).format("lll")}</div>          
+                    <div class="event-detail">Starts ${dayjs(event.start_datetime.$date).add(6, "hour").format("lll")}</div>  
+                    <div class="event-detail">Ends ${dayjs(event.end_datetime.$date).add(6, "hour").format("lll")}</div>          
                 </div>
             </div>
             `;
@@ -330,8 +330,8 @@ function showPopup(coordinates, events, building) {
                     <div class="event-name">${event.name}</div>
                 </div>
                 <div class="event-detail">${event.description ? event.description : "No description"}</div>      
-                <div class="event-detail">Starts ${dayjs(event.start_datetime.$date).format("lll")}</div>  
-                <div class="event-detail">Ends ${dayjs(event.end_datetime.$date).format("lll")}</div>  
+                <div class="event-detail">Starts ${dayjs(event.start_datetime.$date).add(6, "hour").format("lll")}</div>  
+                <div class="event-detail">Ends ${dayjs(event.end_datetime.$date).add(6, "hour").format("lll")}</div>  
             </div>
         </div>
         `;
