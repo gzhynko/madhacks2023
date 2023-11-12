@@ -18,7 +18,9 @@ def run_scrape_events(cloud_event):
     if message == "scrape events":
         print("running scrape events")
         event_data = scrape_event_data()
-        print("scraped " + len(event_data) + " events successfully, publishing to DB")
+        print(
+            "scraped " + str(len(event_data)) + " events successfully, publishing to DB"
+        )
         publish_to_db(event_data)
 
 
@@ -152,7 +154,7 @@ def scrape_event_data() -> [Event]:
                         end = convert(eventTime, week[h])[1]
                     else:
                         start = convert("All day", week[h])[0]
-                        end = convert("All day", week[h])[1]    
+                        end = convert("All day", week[h])[1]
                 else:
                     start = convert("All day", week[h])[0]
                     end = convert("All day", week[h])[1]
@@ -170,7 +172,6 @@ def scrape_event_data() -> [Event]:
                         description = description.text.strip()
 
                 event = Event(id, name, start, end, building, location, description)
-                print("scraped " + event.name)
                 events.append(event)
 
     return events
