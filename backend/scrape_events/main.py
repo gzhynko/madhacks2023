@@ -150,6 +150,9 @@ def scrape_event_data() -> [Event]:
                         eventTime = eventTime.text
                         start = convert(eventTime, week[h])[0]
                         end = convert(eventTime, week[h])[1]
+                    else:
+                        start = convert("All day", week[h])[0]
+                        end = convert("All day", week[h])[1]    
                 else:
                     start = convert("All day", week[h])[0]
                     end = convert("All day", week[h])[1]
