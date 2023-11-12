@@ -15,6 +15,7 @@ class Event:
 
 time = date.today()
 
+Events = []
 week = []
 for j in range(7):
         new_day = time + datetime.timedelta(days=j)
@@ -87,3 +88,4 @@ for h in range(7):
                                         description = description.text
                                         
                         var = Event(name, location, date, eventTime, description)
+                        Events.append(var
