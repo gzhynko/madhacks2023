@@ -15,13 +15,41 @@
         margin: 0; 
         padding: 0; 
     }
+    .find-button {
+        display: inline-block;
+        text-align: center;
+        font-size: 14px;
+        font-family: 'Red Hat Display';
+        font-weight: 600;
+        padding: 0.75rem 1.25rem;
+        margin-top: 10px;
+        width: 100%;
+        background: #0479a8;
+        color: #fff;
+        box-shadow: 0 1.5px 4px rgba(0,0,0,.24), 0 1.5px 6px rgba(0,0,0,.12);
+        position: relative;
+        cursor: pointer;
+        -webkit-appearance: none;
+        transition: all .25s ease-out;
+        vertical-align: middle;
+        border: 2px solid #0479a8;
+        border-radius: 2px;
+
+        background-color: #c5050c;
+        color: #fff;
+        border: 2px solid #c5050c;
+    }
+    .find-button:hover {
+        background-color: #fff;
+        color: #c5050c;
+    }
     .events-box {
         width: 240px;
         position: absolute;
         top: 10px;
         bottom: 40px;
         left: 10px;
-        background-color: rgba(255, 255, 255, 1);
+        background-color: white;
         padding: 15px;
         font: 20px 'Red Hat Display', Arial, Helvetica, sans-serif;
         font-weight: 500;
@@ -96,8 +124,7 @@
         From:
         <input
             type="datetime-local"
-            id="meeting-time"
-            name="meeting-time"
+            id="date-from"
             value="2018-06-12T19:30"
             min="2018-06-07T00:00"
             max="2018-06-14T00:00" />
@@ -106,14 +133,13 @@
         To:
         <input
             type="datetime-local"
-            id="meeting-time"
-            name="meeting-time"
+            id="date-to" 
             value="2018-06-12T19:30"
             min="2018-06-07T00:00"
             max="2018-06-14T00:00" />
     </div>
-    <button onclick="findEvents()">
-        Go
+    <button class="find-button" onclick="findEvents()">
+        Find Events
     </button>
 </div>
 <script>
@@ -183,7 +209,38 @@
         return mostSimilarBuilding;
     }
 
+    function padZero(number) {
+        // Helper function to pad single-digit numbers with a leading zero
+        return number < 10 ? "0" + number : number;
+    }
+
+    function convertTime(inputDate) {
+        // Create a Date object from the input string
+        var dateObject = new Date(inputDate);
+
+        // Format the date as per "YYYY-MM-DD_HH:MM:SS"
+        var formattedDate =
+            dateObject.getFullYear() +
+            "-" +
+            padZero(dateObject.getMonth() + 1) +
+            "-" +
+            padZero(dateObject.getDate()) +
+            "_" +
+            padZero(dateObject.getHours()) +
+            ":" +
+            padZero(dateObject.getMinutes()) +
+            ":" +
+            padZero(dateObject.getSeconds());
+
+        return formattedDate
+    }
+
     async function findEvents() {
+        const from = document.getElementById('date-from').value;
+        const to = document.getElementById('date-to').value;
+        console.log(convertTime(from))
+        console.log(convertTime(to))
+
         const GET_EVENTS_ENDPOINT = "https://us-central1-madhacks-2023-404820.cloudfunctions.net/get-events";
         try {
             const serverResponse = await fetch(GET_EVENTS_ENDPOINT, {
@@ -197,7 +254,7 @@
                 },
                 redirect: "follow", // manual, *follow, error
                 referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-                body: JSON.stringify({ start_time: "2023-11-11_20:00:00", end_time: "2023-11-11_23:00:00" }), // body data type must match "Content-Type" header
+                body: JSON.stringify({ start_time: "2023-11-12_00:00:00", end_time: "2023-11-12_23:59:00" }), // body data type must match "Content-Type" header
             })
 
             const eventsToAdd = []
@@ -226,9 +283,9 @@
                 'Hillel Foundation, 611 Langdon St.'
             ]
 
-            buildingNamesFromServer.forEach(event => {
+            events.forEach(event => {
                 // Simplify cases like Main Gallery (Second Floor), Memorial Union to just Memorial Union
-                const arrayOfStrings = event.split(',')
+                const arrayOfStrings = event.full_location.split(',')
                 const buildingName = arrayOfStrings[arrayOfStrings.length - 1].trim();
 
                 // similarBuildings = findSimilarBuilding(buildingName, madisonMapData['features'], 5)
@@ -247,35 +304,28 @@
                 }
             })
  
-            console.log(eventsToAdd)
-
             // Add together events that are at the same location
             const seenEvents = {};
+            const pointsToAdd = [];
+
             eventsToAdd.forEach((event, index) => {
                 const eventName = event.properties.name;
 
                 if (seenEvents[eventName]) {
-                    console.log('seen! ' + eventName)
-
                     // Duplicate found
-                    event.properties.count += 1
-                    seenEvents[eventName].count++;
-                    eventsToAdd.splice(index, 1); // Remove duplicate in place
+                    event.properties.num_of_events += 1
                 } else {
                     // First occurrence
-                    console.log('first! ' + eventName)
-
-                    event.properties.count = 1
-                    seenEvents[eventName] = { count: 1 };
+                    seenEvents[eventName] = true
+                    pointsToAdd.push(event)
+                    event.properties.num_of_events = 1
                 }
             });
 
             // Add events to map
-            console.log(eventsToAdd)
-
             const data = {
                 "type": "FeatureCollection",
-                "features": eventsToAdd
+                "features": pointsToAdd
             }
             
             map.addSource('points', {
@@ -286,6 +336,7 @@
                 clusterRadius: 40 // Radius of each cluster when clustering points (defaults to 50)
             });
 
+            // Cluster circles
             map.addLayer({
                 id: 'clustered',
                 type: 'circle',
@@ -298,7 +349,6 @@
                     'circle-stroke-color': 'black'
                 }
             })
-
             map.addLayer({
                 id: 'cluster-count',
                 type: 'symbol',
@@ -315,6 +365,7 @@
                 }
             });
 
+            // Regular non clustered circles
             map.addLayer({
                 id: 'event',
                 type: 'circle',
@@ -327,6 +378,21 @@
                     'circle-stroke-color': 'black'
                 }
             })
+            map.addLayer({
+                id: 'circle-count',
+                type: 'symbol',
+                source: 'points',
+                filter: ['!', ['has', 'point_count']],
+                layout: {
+                    'text-field': ['get', 'num_of_events'],
+                    'text-font': ['Open Sans Bold'],
+                    'text-size': 18,
+                    'text-justify': 'center'
+                },
+                'paint': {
+                    'text-color': 'white'
+                }
+            });
         } catch (err) {
             console.error('Error: ', err)
         }
@@ -428,7 +494,7 @@
             const coordinates = e.features[0].geometry.coordinates.slice();
             const description = `
             <strong>${e.features[0].properties.name}</strong>
-            <i>3 events</i>
+            <i>${e.features[0].properties.num_of_events} event${e.features[0].properties.num_of_events == 1 ? '' : 's'}</i>
             <div  class="events">
                 <div style="margin-top: 10px">
                     <div class="event-container">
