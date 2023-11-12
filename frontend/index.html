@@ -10,13 +10,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="lib/pico-1.5.9/css/pico.min.css">
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/plugin/localizedFormat.js"></script>
+    <script>dayjs.extend(window.dayjs_plugin_localizedFormat)</script>
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
     <script src="uw_madison_buildings.js"></script>
 </head>
 <body>
     <div id="map"></div>
     <div class="events-box">
-        <div>Events</div>
+        <div style="display: flex; align-items: center; justify-content: center; 100%;">
+            <image width="40px" src="images/Wisconsin_Badgers_logo.svg.png"></image>
+            <div class="website-name">Where To Go</div>
+        </div>
         <div class="date-input-container">
             <div class="date-input">
                 From:
@@ -37,7 +43,7 @@
             Find Events
         </button>
         <div id="events-list">
-            
+
         </div>
     </div>
     <script src="script.js"></script>

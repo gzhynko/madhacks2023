@@ -6,6 +6,7 @@
     --form-element-background-color: #f6f6f6 !important;
     --form-element-border-color: hsl(0deg 0% 100% / 0%) !important;
     --primary: #c5050c;
+    --progress-color: #c5050c !important;
     --primary-hover: #c5050c;
     --spacing: 0;
 }
@@ -46,15 +47,26 @@ body {
 }
 
 .events-box {
+    display: flex;
+    flex-direction: column;
     width: 300px;
     position: absolute;
     top: 10px;
     bottom: 40px;
+    border-radius: 6px;
     left: 10px;
     background-color: white;
     padding: 15px;
     font: 20px 'Red Hat Display', Arial, Helvetica, sans-serif;
     font-weight: 500;
+}
+
+.website-name {
+    font-size: 24px;
+    font-weight: 600;
+    text-align: center;
+    margin-left: 10px;
+    color: black;
 }
 
 .date-input-container {
@@ -75,7 +87,7 @@ body {
 
 #events-list {
     overflow-y: scroll;
-    height: 400px;
+    height: 100%;
 }
 
 .event-container {

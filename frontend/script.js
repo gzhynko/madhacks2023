@@ -106,19 +106,26 @@ function convertTime(inputDate) {
 
 function addEventsToOverlay(pointsToAdd) {
     console.log("add: ", pointsToAdd);
+    // console.log(dayjs(pointsToAdd[0].properties.events[0].start_datetime.$date).fromNow());
     const element = document.getElementById("events-list");
-
+    console;
     let eventsListHTML = "";
     pointsToAdd.forEach((point) => {
         point.properties.events.forEach((event) => {
             eventsListHTML += `
             <div style="margin-top: 10px">
                 <div class="event-container">
-                    <div>
-                        <div class="event-name">${event.name}</div>
+                    <div onclick="map.flyTo({
+                        center: [${point.geometry.coordinates}],
+                        zoom: 17,
+                    })">
+                        <div class="event-name" style="color: black">${event.name}</div>
                     </div>
-                    <div class="event-detail">${event.description}</div>      
-                    <div class="event-detail"></div>      
+                    <div class="event-detail" style="max-height: 100px; text-overflow: ellipsis; overflow: hidden; white-space: nowrap">${
+                        event.description
+                    }</div>      
+                    <div class="event-detail">Starts ${dayjs(event.start_datetime.$date).format("lll")}</div>  
+                    <div class="event-detail">Ends ${dayjs(event.end_datetime.$date).format("lll")}</div>          
                 </div>
             </div>
             `;
@@ -129,6 +136,8 @@ function addEventsToOverlay(pointsToAdd) {
 }
 
 async function findEvents() {
+    document.getElementById("events-list").innerHTML = `<progress style="margin-top: 10px;"></progress>`;
+
     const from = convertTime(document.getElementById("date-from").value);
     const to = convertTime(document.getElementById("date-to").value);
 
@@ -340,7 +349,8 @@ map.on("load", () => {
                         <div class="event-name">${event.name}</div>
                     </div>
                     <div class="event-detail">${event.description}</div>      
-                    <div class="event-detail"></div>      
+                    <div class="event-detail">Starts ${dayjs(event.start_datetime.$date).format("lll")}</div>  
+                    <div class="event-detail">Ends ${dayjs(event.end_datetime.$date).format("lll")}</div>  
                 </div>
             </div>
             `;
