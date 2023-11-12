@@ -113,12 +113,12 @@ function addEventsToOverlay(pointsToAdd) {
     pointsToAdd.forEach((point) => {
         point.properties.events.forEach((event) => {
             eventsListHTML += `
-            <div style="margin-top: 10px">
+            <div onclick="map.flyTo({
+                center: [${point.geometry.coordinates}],
+                zoom: 17,
+            })" style="margin-top: 10px; border-bottom-width: 1px; border-color: #d5d5d5; border-bottom-style: solid;">
                 <div class="event-container">
-                    <div onclick="map.flyTo({
-                        center: [${point.geometry.coordinates}],
-                        zoom: 17,
-                    })">
+                    <div>
                         <div class="event-name" style="color: black">${event.name}</div>
                     </div>
                     <div class="event-detail" style="max-height: 100px; text-overflow: ellipsis; overflow: hidden; white-space: nowrap">${
@@ -320,6 +320,39 @@ async function findEvents() {
     }
 }
 
+function showPopup(coordinates, events, building) {
+    let eventsHTML = "";
+    events.forEach((event) => {
+        eventsHTML += `
+        <div style="margin-top: 10px">
+            <div class="event-container">
+                <div>
+                    <div class="event-name">${event.name}</div>
+                </div>
+                <div class="event-detail">${event.description}</div>      
+                <div class="event-detail">Starts ${dayjs(event.start_datetime.$date).format("lll")}</div>  
+                <div class="event-detail">Ends ${dayjs(event.end_datetime.$date).format("lll")}</div>  
+            </div>
+        </div>
+        `;
+    });
+
+    const description = `
+    <strong>${building.name}</strong>
+    <i>${building.num_of_events} event${building.num_of_events == 1 ? "" : "s"}</i>
+    <div class="events">
+        ${eventsHTML}
+    </div>
+    `;
+
+    new mapboxgl.Popup({
+        anchor: "bottom",
+    })
+        .setLngLat(coordinates)
+        .setHTML(description)
+        .addTo(map);
+}
+
 mapboxgl.accessToken = "pk.eyJ1Ijoiam1hdGhlc2l1cyIsImEiOiJjbG91aHRzczMwZ2JiMmpuemY4YTNtbGYwIn0.pbpfNj8Wp-AwvGqxophXng";
 const map = new mapboxgl.Map({
     container: "map", // container ID
@@ -340,43 +373,13 @@ map.on("load", () => {
         // Copy coordinates array.
         const coordinates = e.features[0].geometry.coordinates.slice();
 
-        let eventsHTML = "";
-        JSON.parse(e.features[0].properties.events).forEach((event) => {
-            eventsHTML += `
-            <div style="margin-top: 10px">
-                <div class="event-container">
-                    <div>
-                        <div class="event-name">${event.name}</div>
-                    </div>
-                    <div class="event-detail">${event.description}</div>      
-                    <div class="event-detail">Starts ${dayjs(event.start_datetime.$date).format("lll")}</div>  
-                    <div class="event-detail">Ends ${dayjs(event.end_datetime.$date).format("lll")}</div>  
-                </div>
-            </div>
-            `;
-        });
-
-        const description = `
-        <strong>${e.features[0].properties.name}</strong>
-        <i>${e.features[0].properties.num_of_events} event${e.features[0].properties.num_of_events == 1 ? "" : "s"}</i>
-        <div class="events">
-            ${eventsHTML}
-        </div>
-        `;
-
         // Ensure that if the map is zoomed out such that multiple
         // copies of the feature are visible, the popup appears
         // over the copy being pointed to.
         while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
             coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
         }
-
-        new mapboxgl.Popup({
-            anchor: "bottom",
-        })
-            .setLngLat(coordinates)
-            .setHTML(description)
-            .addTo(map);
+        showPopup(coordinates, JSON.parse(e.features[0].properties.events), e.features[0].properties);
     });
 
     // Change the cursor to a pointer when the it enters a feature in the 'circle' layer.
