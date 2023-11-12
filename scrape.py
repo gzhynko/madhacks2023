@@ -6,11 +6,17 @@ import re
 from urllib.request import urlopen
 
 class Event:
-        def __init__(self, name, location, date, eventTime, description):
+        def __init__(self, event_id, name, start_datetime, end_datetime, building_name, full_location, description):
                 self.name = name
-                self.date = date
-                self.location = location
-                self.eventTime = eventTime
+                self.event_id = event_id
+                self.full_location = full_location
+                if "," in location:
+                        x = full_location.index(",")
+                        self.building_name = full_location[0:x]
+                else:
+                        self.building_name = full_location
+                self.start_datetime = start_datetime
+                self.end_datetime = end_datetime
                 self.description = description
 
 time = date.today()
@@ -43,8 +49,10 @@ for h in range(7):
                 location = ""
                 name = ""
                 date = ""
-                eventTime = ""
+                start = ""
+                end = ""
                 description = ""
+                building = ""
                 if detail is not None:
                         if detail.find("p", class_="event-location") != -1:
                                 location = detail.find("p", class_="event-location")
@@ -87,5 +95,5 @@ for h in range(7):
                                 if description is not None:
                                         description = description.text
                                         
-                        var = Event(name, location, date, eventTime, description)
-                        Events.append(var
+                        var = Event(name, id, start, end, building, location, description)
+                        Events.append(var)
