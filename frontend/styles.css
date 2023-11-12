@@ -16,6 +16,10 @@ body {
     padding: 0; 
 }
 
+button {
+    width: unset;
+}
+
 .find-button {
     display: inline-block;
     text-align: center;
