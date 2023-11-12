@@ -84,7 +84,6 @@ def parse_building_list():
     Eagle Heights Buildings 701-819	
     Eagle Heights Buildings 901-946	
     Eagle Heights Community Center	1299
-    Educational Sciences	0154
     Education Building	0400
     Engineering Centers Building	0481
     Engineering Hall	0408
@@ -238,12 +237,18 @@ def parse_building_list():
 
 def get_coordinates(api_key, building_name):
     gmaps = googlemaps.Client(key=api_key)
-    query = f"{building_name}, University of Wisconsin-Madison"
+    # query = f"{building_name}, University of Wisconsin-Madison"
+    query = f"{building_name}"
     geocode_result = gmaps.geocode(query)
+
+    geocode_result = gmaps.find_place(query, 'textquery', ['geometry/location'], 'circle:16000@43.076242,-89.404499')
+    # print('geocode_result')
+    # print(geocode_result)
     # geocode_result = gmaps.geocode(building_name)
 
-    if geocode_result:
-        location = geocode_result[0]['geometry']['location']
+    if geocode_result and geocode_result['candidates'] and geocode_result['candidates'][0]:
+        # location = geocode_result[0]['geometry']['location']
+        location = geocode_result['candidates'][0]['geometry']['location']
         latitude = location['lat']
         longitude = location['lng']
         return {'name': building_name, 'latitude': latitude, 'longitude': longitude}
@@ -309,7 +314,7 @@ def main():
         ]
     }
 
-    with open('uw_madison_buildings.geojson', 'w') as geojson_file:
+    with open('uw_madison_buildings.js', 'w') as geojson_file:
         json.dump(geojson_data, geojson_file, indent=2)
 
 if __name__ == "__main__":

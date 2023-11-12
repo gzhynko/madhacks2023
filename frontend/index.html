@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Display a map on a webpage</title>
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+<link href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
+<script src="./uw_madison_buildings.js"></script>
+<style> 
+    body { 
+        margin: 0; 
+        padding: 0; 
+    }
+    #map { position: absolute; top: 0; bottom: 0; width: 100%; }
+    .mapboxgl-popup {
+        min-width: 500px;
+        font: 18px 'Red Hat Display', Arial, Helvetica, sans-serif;
+        /* color: rgb(51, 51, 51); */
+        color: white;
+    }
+
+    /* thanks https://stackoverflow.com/questions/44554692/style-a-mapbox-popups-pointer-indicator */
+    .mapboxgl-popup-content {
+        background-color: #171717;
+        padding: 16px;
+    }
+    .mapboxgl-popup-anchor-top .mapboxgl-popup-tip,
+    .mapboxgl-popup-anchor-top-left .mapboxgl-popup-tip,
+    .mapboxgl-popup-anchor-top-right .mapboxgl-popup-tip {
+        border-bottom-color:  #171717;
+        }
+    .mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip,
+    .mapboxgl-popup-anchor-bottom-left .mapboxgl-popup-tip,
+    .mapboxgl-popup-anchor-bottom-right .mapboxgl-popup-tip {
+        border-top-color:  #171717;
+        }
+    .mapboxgl-popup-anchor-left .mapboxgl-popup-tip {
+        border-right-color: #171717;
+        }
+    .mapboxgl-popup-anchor-right .mapboxgl-popup-tip {
+        border-left-color: #171717;
+        }
+    .events {
+        overflow: scroll;
+        max-height: 250px;
+    }
+    .event-container {
+        margin-bottom: 10px;
+    }
+    .event-name {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        font-weight: 500;
+        margin-bottom: 3px;
+        max-width: 400px;
+        /* color: rgb(4, 121, 168); */
+        color: rgb(24, 185, 250);
+    }
+    .event-detail {
+        /* color: #646464;  */
+        font-size: 14px;
+        margin-bottom: 3px;
+    }
+</style>
+</head>
+<body>
+<div id="map"></div>
+<script>
+	mapboxgl.accessToken = 'pk.eyJ1Ijoiam1hdGhlc2l1cyIsImEiOiJjbG91aHRzczMwZ2JiMmpuemY4YTNtbGYwIn0.pbpfNj8Wp-AwvGqxophXng';
+    const map = new mapboxgl.Map({
+        container: 'map', // container ID
+        // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
+        style: 'mapbox://styles/jmathesius/cloupit5m00fa01nw7imodc8q', // style URL
+        center: [-89.404499, 43.076242], // starting position [lng, lat]
+        zoom: 15 // starting zoom
+    });
+
+    map.on('load', () => {
+        map.addSource('points', {
+            'type': 'geojson',
+            'data': madisonMapData,
+            cluster: true,
+            clusterMaxZoom: 16, // Max zoom to cluster points on
+            clusterRadius: 40 // Radius of each cluster when clustering points (defaults to 50)
+        });
+
+        map.addLayer({
+            id: 'clustered',
+            type: 'circle',
+            source: 'points',
+            filter: ['has', 'point_count'],
+            paint: {
+                'circle-color': '#0479A8',
+                'circle-radius': 12,
+                'circle-stroke-width': 0,
+                'circle-stroke-color': '#ffffff'
+            }
+        })
+
+        map.addLayer({
+            id: 'cluster-count',
+            type: 'symbol',
+            source: 'points',
+            filter: ['has', 'point_count'],
+            layout: {
+                'text-field': ['get', 'point_count_abbreviated'],
+                'text-font': ['Open Sans Bold'],
+                'text-size': 18,
+                'text-justify': 'center'
+            },
+            'paint': {
+                'text-color': 'white'
+            }
+        });
+
+        map.addLayer({
+            id: 'event',
+            type: 'circle',
+            source: 'points',
+            filter: ['!', ['has', 'point_count']],
+            paint: {
+                'circle-color': '#0479A8',
+                'circle-radius': 12,
+                'circle-stroke-width': 0,
+                'circle-stroke-color': '#ffffff'
+            }
+        })
+
+        // map.addLayer({
+        //     id: 'name',
+        //     type: 'symbol',
+        //     source: 'points',
+        //     filter: ['!', ['has', 'point_count']],
+        //     layout: {
+        //         'text-field': ['get', 'name'],
+        //         'text-font': ['Open Sans Bold'],
+        //         'text-size': 13,
+        //         'text-anchor': 'bottom',
+        //         'text-radial-offset': 1
+        //     },
+        //     'paint': {
+        //         'text-color': '#231f1f',
+        //         'text-halo-width': 1,
+        //         'text-halo-color': 'white'
+        //     }
+        // });
+
+        // Center the map on the coordinates of any clicked circle from the 'circle' layer.
+        map.on('click', 'event', (e) => {
+            map.flyTo({
+                center: e.features[0].geometry.coordinates,
+                zoom: 17
+            });
+
+            // Copy coordinates array.
+            const coordinates = e.features[0].geometry.coordinates.slice();
+            const description = `
+            <strong>${e.features[0].properties.name}</strong>
+            <i>3 events</i>
+            <div  class="events">
+                <div style="margin-top: 10px">
+                    <div class="event-container">
+                        <div>
+                            <div class="event-name">Thanksgiving To Go Ordering Cuisine & Dining</div>
+                        </div>
+                        <div class="event-detail">Thanksgiving Dinner Made Easy! Online orders close 11/15. Limited quantities!</div>      
+                        <div class="event-detail">All day</div>      
+                    </div>
+                </div>
+                <div style="margin-top: 10px">
+                    <div class="event-container">
+                        <div>
+                            <div class="event-name">Thanksgiving To Go Ordering Cuisine & Dining</div>
+                        </div>
+                        <div class="event-detail">Thanksgiving Dinner Made Easy! Online orders close 11/15. Limited quantities!</div>            
+                        <div class="event-detail">9 a.m.-4 p.m.</div>
+                    </div>
+                </div>
+                <div style="margin-top: 10px">
+                    <div class="event-container">
+                        <div>
+                            <div class="event-name">Thanksgiving To Go Ordering Cuisine & Dining</div>
+                        </div>
+                        <div class="event-detail">Thanksgiving Dinner Made Easy! Online orders close 11/15. Limited quantities!</div>            
+                        <div class="event-detail">9 a.m.-4 p.m.</div>
+                    </div>
+                </div>
+            </div>
+            `;
+            
+            // Ensure that if the map is zoomed out such that multiple
+            // copies of the feature are visible, the popup appears
+            // over the copy being pointed to.
+            while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+            coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+            }
+            
+            new mapboxgl.Popup()
+                .setLngLat(coordinates)
+                .setHTML(description)
+                .addTo(map);
+        });
+
+        // Change the cursor to a pointer when the it enters a feature in the 'circle' layer.
+        map.on('mouseenter', 'event', () => {
+            map.getCanvas().style.cursor = 'pointer';
+        });
+
+        // Change the cursor to a pointer when the it enters a feature in the 'circle' layer.
+        map.on('mouseenter', 'event', () => {
+            map.getCanvas().style.cursor = 'pointer';
+        });
+
+        // Change it back to a pointer when it leaves.
+        map.on('mouseleave', 'event', () => {
+            map.getCanvas().style.cursor = '';
+        });
+
+        
+
+
+        // Center the map on the coordinates of any clicked circle from the 'circle' layer.
+        map.on('click', 'clustered', (e) => {
+            map.flyTo({
+                center: e.features[0].geometry.coordinates,
+                zoom: 17
+            })
+        });
+
+        // Change the cursor to a pointer when the it enters a feature in the 'circle' layer.
+        map.on('mouseenter', 'clustered', () => {
+            map.getCanvas().style.cursor = 'pointer';
+        });
+
+        // Change the cursor to a pointer when the it enters a feature in the 'circle' layer.
+        map.on('mouseenter', 'clustered', () => {
+            map.getCanvas().style.cursor = 'pointer';
+        });
+
+        // Change it back to a pointer when it leaves.
+        map.on('mouseleave', 'clustered', () => {
+            map.getCanvas().style.cursor = '';
+        });
+    });
+</script>
+
+</body>
+</html>
+
+
+
+
+<!-- https://api.mapbox.com/styles/v1/uwmadison-ucomm/ck3qcwv2d730g1dolz77jgu89?access_token=pk.eyJ1IjoidXdtYWRpc29uLXVjb21tIiwiYSI6InlSb2xNMmcifQ.QdGExUkysAJkvrS6B4U2WA
+https://api.mapbox.com/datasets/v1/jmathesius/clouhwufr1len1mmk8pjpt8kd/features?access_token=tk.eyJ1Ijoiam1hdGhlc2l1cyIsImV4cCI6MTY5OTc0MjgwOSwiaWF0IjoxNjk5NzM5MjA5LCJzY29wZXMiOlsiZXNzZW50aWFscyIsInNjb3BlczpsaXN0IiwibWFwOnJlYWQiLCJtYXA6d3JpdGUiLCJ1c2VyOnJlYWQiLCJ1c2VyOndyaXRlIiwidXBsb2FkczpyZWFkIiwidXBsb2FkczpsaXN0IiwidXBsb2Fkczp3cml0ZSIsInN0eWxlczp0aWxlcyIsInN0eWxlczpyZWFkIiwiZm9udHM6bGlzdCIsImZvbnRzOnJlYWQiLCJmb250czp3cml0ZSIsInN0eWxlczp3cml0ZSIsInN0eWxlczpsaXN0Iiwic3R5bGVzOmRvd25sb2FkIiwic3R5bGVzOnByb3RlY3QiLCJ0b2tlbnM6cmVhZCIsInRva2Vuczp3cml0ZSIsImRhdGFzZXRzOmxpc3QiLCJkYXRhc2V0czpyZWFkIiwiZGF0YXNldHM6d3JpdGUiLCJ0aWxlc2V0czpsaXN0IiwidGlsZXNldHM6cmVhZCIsInRpbGVzZXRzOndyaXRlIiwiZG93bmxvYWRzOnJlYWQiLCJ2aXNpb246cmVhZCIsInZpc2lvbjpkb3dubG9hZCIsIm5hdmlnYXRpb246ZG93bmxvYWQiLCJvZmZsaW5lOnJlYWQiLCJvZmZsaW5lOndyaXRlIiwic3R5bGVzOmRyYWZ0IiwiZm9udHM6bWV0YWRhdGEiLCJzcHJpdGUtaW1hZ2VzOnJlYWQiLCJkYXRhc2V0czpzdHVkaW8iLCJjdXN0b21lcnM6d3JpdGUiLCJjcmVkZW50aWFsczpyZWFkIiwiY3JlZGVudGlhbHM6d3JpdGUiLCJhbmFseXRpY3M6cmVhZCJdLCJjbGllbnQiOiJtYXBib3guY29tIiwibGwiOjE2OTk3MzQyNTYxMzgsIml1IjpudWxsLCJlbWFpbCI6ImptYXRoZXNpdXNAd2lzYy5lZHUifQ.zic9qUkHiDiPtv9invGlBw&_=1699739214428
+https://api.mapbox.com/datasets/v1/uwmadison-ucomm/ck3svhklj0y7k2imy2fb22w8o-81p6l/features?access_token=pk.eyJ1IjoidXdtYWRpc29uLXVjb21tIiwiYSI6InlSb2xNMmcifQ.QdGExUkysAJkvrS6B4U2WA
+
+
+ck3t9gyk50god2pqsj6wvbf6b
+https://api.mapbox.com/datasets/v1/uwmadison-ucomm/ck3qcwv2d730g1dolz77jgu89/features?access_token=pk.eyJ1IjoidXdtYWRpc29uLXVjb21tIiwiYSI6InlSb2xNMmcifQ.QdGExUkysAJkvrS6B4U2WA -->
