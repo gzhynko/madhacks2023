@@ -1,24 +1,29 @@
 import functions_framework
+import json
+
+from typing import Optional
+from datetime import datetime
+
+from common import *
 
 
+# triggered by an http request.
 @functions_framework.http
-def hello_http(request):
-    """HTTP Cloud Function.
-    Args:
-        request (flask.Request): The request object.
-        <https://flask.palletsprojects.com/en/1.1.x/api/#incoming-request-data>
-    Returns:
-        The response text, or any set of values that can be turned into a
-        Response object using `make_response`
-        <https://flask.palletsprojects.com/en/1.1.x/api/#flask.make_response>.
-    """
-    request_json = request.get_json(silent=True)
+def run_get_events(request):
     request_args = request.args
 
-    if request_json and "name" in request_json:
-        name = request_json["name"]
-    elif request_args and "name" in request_args:
-        name = request_args["name"]
-    else:
-        name = "World"
-    return "Hello {}!".format(name)
+    building_str = request_args["building"]
+    time_str = request_args["time"]
+    if not building and not time:
+        return "Query should include at least one of the following arguments: building, time"
+
+    time = datetime.strptime(time_str, date_format) if time_str else None
+    building = building_str if building_str else None
+
+    return json.dumps(get_events(time, building))
+
+
+def get_events(building: Optional[str], time: Optional[datetime.datetime]) -> [Event]:
+    query = []
+    if time:
+        query.append({""})

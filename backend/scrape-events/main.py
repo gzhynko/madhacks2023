@@ -1,26 +1,7 @@
-import os
 import base64
 import functions_framework
 
-from pymongo.mongo_client import MongoClient
-from pymongo.server_api import ServerApi
-
-
-class Event:
-    def __init__(
-        self, event_id: int, name: str, datetime: str, location: str, description: str
-    ):
-        self.event_id = event_id
-        self.name = name
-        self.datetime = datetime
-        self.location = location
-        self.description = description
-
-
-db_uri = os.getenv("ATLAS_URI")
-db_client = MongoClient(db_uri, server_api=ServerApi("1"))
-db_cluster = db_client.Madhacks2023Cluster0
-events_db = db_cluster.events
+from common import *
 
 
 # triggered from a message on a Cloud Pub/Sub topic.
